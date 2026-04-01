@@ -1,11 +1,8 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-
 const brands = [
-  { name: 'SALT', letter: 'S' },
-  { name: 'Cadence', letter: 'C' },
-  { name: 'Musashi', letter: 'M' },
-  { name: 'Atlas Collectif', letter: 'A' },
+  { name: 'Cadence', link: 'https://usecadence.com/', textLogo: 'CADENCE', fontClass: 'font-inter font-black tracking-tight text-3xl' },
+  { name: 'Musashi', link: 'https://musashi.com/', textLogo: 'MUSASHI', fontClass: 'font-archivo text-4xl tracking-widest' },
 ];
 
 export default function Collaborations() {
@@ -19,7 +16,7 @@ export default function Collaborations() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-24 flex flex-col items-center"
         >
           <span className="text-riot-red font-inter text-sm font-semibold tracking-[0.3em] uppercase mb-4 block">
             Collaborations
@@ -27,66 +24,34 @@ export default function Collaborations() {
           <h2 className="font-syne text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[0.9] mb-6">
             BRANDS THAT <span className="text-gradient">MOVE</span> WITH US
           </h2>
-          <p className="text-riot-light-gray max-w-2xl mx-auto text-base">
+          <p className="text-riot-light-gray max-w-2xl mx-auto text-base text-center text-balance">
             We partner with brands that align with culture and community — creating authentic
             connections, not ads.
           </p>
         </motion.div>
 
-        {/* Brand logos grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <div className="w-full h-16 md:h-24"></div>
+        {/* Brand logos flex container */}
+        <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-16 w-full max-w-4xl mx-auto">
           {brands.map((brand, i) => (
-            <motion.div
+            <motion.a
+              href={brand.link}
+              target="_blank"
+              rel="noopener noreferrer"
               key={brand.name}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-              className="glass rounded-2xl p-10 flex flex-col items-center justify-center hover:border-riot-red/30 transition-all duration-500 group cursor-hover aspect-square"
+              className="glass rounded-2xl flex items-center justify-center hover:border-riot-red/30 transition-all duration-500 group cursor-hover w-full md:w-80 h-40 md:h-48"
             >
-              <div className="font-syne text-6xl md:text-7xl text-riot-light-gray group-hover:text-gradient transition-all duration-500 mb-3">
-                {brand.letter}
+              <div className="flex items-center justify-center p-2 group-hover:scale-110 transition-transform duration-500">
+                <span className={`${brand.fontClass} text-riot-light-gray group-hover:text-riot-white transition-colors duration-500`}>
+                  {brand.textLogo}
+                </span>
               </div>
-              <p className="font-inter text-sm text-riot-light-gray tracking-[0.2em] uppercase group-hover:text-riot-white transition-colors duration-300">
-                {brand.name}
-              </p>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
-
-        {/* Collaboration details */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="glass-strong rounded-2xl p-8 md:p-12"
-        >
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="font-syne text-4xl tracking-wider mb-4">
-                RUN RIOT <span className="text-gradient">× SALT</span>
-              </h3>
-              <p className="text-riot-light-gray leading-relaxed mb-6">
-                Runs ending at SALT locations. Post-run coffee & social meetups. SALT as the
-                vibe spot for our community. Exclusive runner benefits & discounts.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                {['25+ Regular Runners', 'Consistent Foot Traffic', 'Organic Social Exposure'].map((tag) => (
-                  <span key={tag} className="px-4 py-2 glass rounded-full text-xs text-riot-light-gray tracking-wider">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="relative rounded-xl overflow-hidden aspect-video">
-              <img
-                src="/pictures/ANF03301.webp"
-                alt="SALT collaboration"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-riot-black/60 to-transparent" />
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

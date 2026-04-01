@@ -33,13 +33,15 @@ export default function FutureVision() {
             Future Vision
           </motion.span>
 
-          <h2 className="font-syne text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tight leading-[0.8] mb-8">
+          <h2 className="font-syne text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tight leading-[0.8]">
             WE ARE <span className="text-gradient glow-text">JUST</span>
             <br />
             GETTING STARTED
           </h2>
 
-          <div className="flex flex-wrap justify-center items-center gap-4 mt-12 w-full max-w-4xl mx-auto">
+          <div className="w-full h-16 md:h-24"></div>
+
+          <div className="flex flex-wrap justify-center items-center gap-4 w-full max-w-4xl mx-auto">
             {points.map((point, i) => (
               <motion.div
                 key={point}

@@ -35,24 +35,26 @@ export default function About() {
               Who We Are
             </motion.span>
 
-            <h2 className="font-syne text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[0.9] mb-8">
+            <h2 className="font-syne text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[0.9] mb-8 lg:mb-12">
               MAKING PEOPLE FEEL <span className="text-gradient">ALIVE</span> THROUGH MOVEMENT
             </h2>
 
-            <p className="text-riot-light-gray leading-relaxed mb-6 text-base md:text-lg">
-              RUN RIOT is not a running club. It's a movement born in the UAE — built through
-              shared sweat, honest connection, and a refusal to be ordinary. We exist to
-              make people feel something real.
-            </p>
+            <div className="space-y-6">
+              <p className="text-riot-light-gray leading-relaxed text-base md:text-lg">
+                RUN RIOT is not a running club. It's a movement born in the UAE — built through
+                shared sweat, honest connection, and a refusal to be ordinary. We exist to
+                make people feel something real.
+              </p>
 
-            <p className="text-riot-light-gray leading-relaxed text-base md:text-lg">
-              We're building the strongest social fitness community in the region — connecting
-              people through runs, culture, coffee, and shared experiences that go far beyond
-              the finish line.
-            </p>
+              <p className="text-riot-light-gray leading-relaxed text-base md:text-lg">
+                We're building the strongest social fitness community in the region — connecting
+                people through runs, culture, coffee, and shared experiences that go far beyond
+                the finish line.
+              </p>
+            </div>
 
             {/* Values */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 lg:mt-16">
               {values.map((v, i) => (
                 <motion.div
                   key={v.title}

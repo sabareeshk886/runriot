@@ -56,30 +56,32 @@ export default function CommunityImpact() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-0"
         >
           <span className="text-riot-red font-inter text-sm font-semibold tracking-[0.3em] uppercase mb-4 block">
             Our Impact
           </span>
-          <h2 className="font-syne text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[0.9]">
+          <h2 className="font-syne text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tight uppercase leading-[0.9]">
             THE <span className="text-gradient">NUMBERS</span> SPEAK
           </h2>
         </motion.div>
 
+        <div className="w-full h-20 md:h-28"></div>
+
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
-              className="glass rounded-2xl p-8 text-center hover:border-riot-red/30 transition-all duration-500 group"
+              className="glass rounded-2xl py-8 px-4 flex flex-col items-center justify-center min-h-[160px] text-center hover:border-riot-red/30 transition-all duration-500 group"
             >
-              <div className="font-syne font-extrabold tracking-tight text-gradient mb-2">
+              <div className="font-archivo text-5xl md:text-6xl tracking-tight text-gradient mb-3">
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="text-riot-light-gray text-sm font-inter tracking-wider uppercase">
+              <p className="text-riot-light-gray text-xs md:text-sm font-inter tracking-wider uppercase">
                 {stat.label}
               </p>
             </motion.div>

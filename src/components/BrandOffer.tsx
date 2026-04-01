@@ -49,7 +49,7 @@ export default function BrandOffer() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-0 flex flex-col items-center"
         >
           <span className="text-riot-red font-inter text-sm font-semibold tracking-[0.3em] uppercase mb-4 block">
             For Brands
@@ -57,10 +57,12 @@ export default function BrandOffer() {
           <h2 className="font-syne text-[clamp(2.5rem,5vw,4.5rem)] font-bold tracking-tight leading-[0.9] mb-6">
             WHAT WE <span className="text-gradient">OFFER</span>
           </h2>
-          <p className="text-riot-light-gray max-w-xl mx-auto">
+          <p className="text-riot-light-gray max-w-xl mx-auto text-center text-balance">
             Partner with a community that delivers real value — not vanity metrics
           </p>
         </motion.div>
+
+        <div className="w-full h-16 md:h-24"></div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {offers.map((offer, i) => (
