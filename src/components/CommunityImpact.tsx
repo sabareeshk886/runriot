@@ -37,9 +37,9 @@ const stats = [
 ];
 
 const photos = [
-  '/pictures/ANF03347.JPG',
-  '/pictures/ANF03357.JPG',
-  '/pictures/ANF03413.JPG',
+  '/pictures/ANF03347.webp',
+  '/pictures/ANF03357.webp',
+  '/pictures/ANF03413.webp',
 ];
 
 export default function CommunityImpact() {

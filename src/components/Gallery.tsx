@@ -2,12 +2,12 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const images = [
-  { src: '/pictures/ANF03425.JPG', span: 'col-span-1 row-span-2' },
-  { src: '/pictures/ANF03463.JPG', span: 'col-span-1 row-span-1' },
-  { src: '/pictures/ANF03475.JPG', span: 'col-span-1 row-span-1' },
-  { src: '/pictures/ANF03490.JPG', span: 'col-span-1 row-span-1' },
-  { src: '/pictures/ANF03504.JPG', span: 'col-span-1 row-span-2' },
-  { src: '/pictures/ANF03515.JPG', span: 'col-span-1 row-span-1' },
+  { src: '/pictures/ANF03425.webp', span: 'col-span-1 row-span-2' },
+  { src: '/pictures/ANF03463.webp', span: 'col-span-1 row-span-1' },
+  { src: '/pictures/ANF03475.webp', span: 'col-span-1 row-span-1' },
+  { src: '/pictures/ANF03490.webp', span: 'col-span-1 row-span-1' },
+  { src: '/pictures/ANF03504.webp', span: 'col-span-1 row-span-2' },
+  { src: '/pictures/ANF03515.webp', span: 'col-span-1 row-span-1' },
 ];
 
 export default function Gallery() {

@@ -80,7 +80,7 @@ export default function About() {
           >
             <div className="relative rounded-2xl overflow-hidden aspect-[4/5] glass p-2">
               <img
-                src="/pictures/ANF03358.JPG"
+                src="/pictures/ANF03358.webp"
                 alt="RUN RIOT sprint event"
                 className="w-full h-full object-cover rounded-xl"
               />

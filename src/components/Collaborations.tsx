@@ -79,7 +79,7 @@ export default function Collaborations() {
             </div>
             <div className="relative rounded-xl overflow-hidden aspect-video">
               <img
-                src="/pictures/ANF03301.JPG"
+                src="/pictures/ANF03301.webp"
                 alt="SALT collaboration"
                 className="w-full h-full object-cover"
               />

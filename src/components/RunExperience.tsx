@@ -9,28 +9,28 @@ const experiences = [
     subtitle: 'Every weekend, rain or shine',
     desc: 'Hit the streets with the crew. No pace requirements, just pure energy and good vibes.',
     icon: Footprints,
-    image: '/pictures/ANF03303.JPG',
+    image: '/pictures/ANF03303.webp',
   },
   {
     title: 'Social Meetups',
     subtitle: 'Beyond the finish line',
     desc: 'Post-run hangs, brunches, and spontaneous adventures that turn strangers into lifelong friends.',
     icon: PartyPopper,
-    image: '/pictures/ANF03316.JPG',
+    image: '/pictures/ANF03316.webp',
   },
   {
     title: 'Coffee Culture',
     subtitle: 'Fuel the conversation',
     desc: 'Every run ends at the best local spots. Coffee is the glue that holds this community together.',
     icon: Coffee,
-    image: '/pictures/ANF03334.JPG',
+    image: '/pictures/ANF03334.webp',
   },
   {
     title: 'Lifestyle Vibes',
     subtitle: 'Identity, not activity',
     desc: 'RUN RIOT is a way of life. The gear, the culture, the people — it\'s all part of who we are.',
     icon: Flame,
-    image: '/pictures/ANF03336.JPG',
+    image: '/pictures/ANF03336.webp',
   },
 ];
 
