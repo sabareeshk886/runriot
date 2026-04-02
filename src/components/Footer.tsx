@@ -14,67 +14,74 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/5">
-      <div className="max-w-4xl mx-auto px-6 py-16 flex flex-col items-center text-center">
-        {/* Logo */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-8"
-        >
-          <span className="font-syne font-extrabold uppercase tracking-widest text-white/90 text-xl block">
-            RUN <span className="text-gradient">RIOT</span>
-          </span>
-          <p className="text-riot-light-gray text-sm mt-3 tracking-wider">
-            UAE's Movement Community
-          </p>
-        </motion.div>
+    <footer className="relative border-t border-white/5 w-full">
+      {/* Top brand section — mirrors CTA's container exactly */}
+      <section className="section-padding relative overflow-hidden flex flex-col items-center justify-center w-full py-16">
+        <div className="w-full max-w-4xl mx-auto relative z-10 flex flex-col items-center justify-center text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-6"
+          >
+            <span className="font-syne font-extrabold uppercase tracking-widest text-white/90 text-xl md:text-2xl block">
+              RUN <span className="text-gradient">RIOT</span>
+            </span>
+            <p className="text-riot-light-gray text-sm mt-3 tracking-wider">
+              UAE's Movement Community
+            </p>
+          </motion.div>
 
-        {/* Tagline */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-10"
-        >
-          <p className="font-syne font-extrabold tracking-tighter leading-[0.8] text-2xl md:text-3xl text-riot-light-gray uppercase">
-            LET'S BUILD <span className="text-gradient">TOGETHER</span>
-          </p>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <p className="font-syne font-extrabold tracking-tighter leading-[0.8] text-[clamp(1.5rem,3vw,2.5rem)] text-riot-light-gray uppercase">
+              LET'S BUILD <span className="text-gradient">TOGETHER</span>
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-        {/* Social links */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex gap-4 justify-center"
-        >
-          {socialLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 glass rounded-full flex items-center justify-center text-riot-light-gray hover:text-riot-red hover:border-riot-red/30 transition-all duration-300"
-              aria-label={link.name}
-            >
-              {link.icon}
-            </a>
-          ))}
-        </motion.div>
+      {/* Bottom bar — full viewport width, items in corners */}
+      <div className="border-t border-white/5 w-full">
+        <div className="relative flex items-center justify-between w-full px-8 py-6">
 
-        {/* Bottom bar */}
-        <div className="border-t border-white/5 mt-12 pt-8 flex flex-col items-center gap-4 w-full">
-          <p className="text-riot-light-gray text-xs tracking-wider">
+          {/* Left: Copyright */}
+          <p className="text-riot-light-gray text-xs tracking-wider shrink-0">
             © 2024 RUN RIOT. All rights reserved.
           </p>
-          <p className="text-riot-light-gray text-xs tracking-wider">
+
+          {/* Center: Instagram — absolutely pinned to 50% of viewport */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="absolute left-1/2 -translate-x-1/2"
+          >
+            {socialLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 glass rounded-full flex items-center justify-center text-riot-light-gray hover:text-riot-red hover:border-riot-red/30 transition-all duration-300"
+                aria-label={link.name}
+              >
+                {link.icon}
+              </a>
+            ))}
+          </motion.div>
+
+          {/* Right: Badge */}
+          <p className="text-riot-light-gray text-xs tracking-wider shrink-0">
             Made with 🔥 in the UAE
           </p>
+
         </div>
       </div>
     </footer>

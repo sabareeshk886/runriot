@@ -2,8 +2,9 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const images = [
+  { src: '/pictures/ANF03347.webp', span: 'col-span-1 row-span-1' },
   { src: '/pictures/ANF03425.webp', span: 'col-span-1 row-span-2' },
-  { src: '/pictures/ANF03463.webp', span: 'col-span-1 row-span-1' },
+  { src: '/pictures/ANF03357.webp', span: 'col-span-1 row-span-1' },
   { src: '/pictures/ANF03475.webp', span: 'col-span-1 row-span-1' },
   { src: '/pictures/ANF03490.webp', span: 'col-span-1 row-span-1' },
   { src: '/pictures/ANF03504.webp', span: 'col-span-1 row-span-2' },

@@ -39,7 +39,7 @@ export default function ExperienceFlow() {
             initial={{ scaleX: 0 }}
             animate={isInView ? { scaleX: 1 } : {}}
             transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden md:block absolute top-1/2 left-0 w-full h-[2px] origin-left"
+            className="hidden md:block absolute top-[40px] left-0 w-full h-[2px] origin-left"
             style={{ background: 'linear-gradient(90deg, #FF2D2D, #FF5E00, #FF9500)' }}
           />
 
@@ -57,7 +57,7 @@ export default function ExperienceFlow() {
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : {}}
                   transition={{ duration: 0.4, delay: 0.6 + i * 0.2, type: 'spring' }}
-                  className="w-20 h-20 rounded-full glass-strong flex items-center justify-center mb-4 relative z-10"
+                  className="w-20 h-20 rounded-full glass-strong flex items-center justify-center mb-6 relative z-10"
                   style={{ boxShadow: `0 0 30px ${step.color}33` }}
                 >
                   <span className="text-white">

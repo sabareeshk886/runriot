@@ -4,30 +4,59 @@ import { useRef, useState } from 'react';
 export default function CTA() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [email, setEmail] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    gender: '',
+    countryCode: '+971',
+    contact: '',
+    nationality: '',
+    email: ''
+  });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    if (!formData.email || !formData.name) return;
     
     setStatus('submitting');
     
-    // Simulate network delay for UX
-    setTimeout(() => {
-      // Store in localStorage
-      const existing = JSON.parse(localStorage.getItem('runriot_subscribers') || '[]');
-      if (!existing.includes(email)) {
-        existing.push(email);
-        localStorage.setItem('runriot_subscribers', JSON.stringify(existing));
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/runriot2026@gmail.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            Name: formData.name,
+            Gender: formData.gender,
+            Contact: `${formData.countryCode} ${formData.contact}`,
+            Nationality: formData.nationality,
+            Email: formData.email,
+            _subject: "New RUN RIOT Join Request",
+            _template: "table" // Uses a nice table layout in the email
+        })
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', gender: '', countryCode: '+971', contact: '', nationality: '', email: '' });
+        
+        // Reset after 4 seconds
+        setTimeout(() => setStatus('idle'), 4000);
+      } else {
+        setStatus('idle');
+        alert("Something went wrong. Please try again.");
       }
-      
-      setStatus('success');
-      setEmail('');
-      
-      // Reset after 3 seconds
-      setTimeout(() => setStatus('idle'), 3000);
-    }, 800);
+    } catch (error) {
+      console.error(error);
+      setStatus('idle');
+      alert("Something went wrong. Please check your connection and try again.");
+    }
   };
 
   return (
@@ -50,33 +79,96 @@ export default function CTA() {
             <span className="text-gradient glow-text">MOVEMENT</span>
           </h2>
 
-          <p className="text-riot-light-gray text-base md:text-lg max-w-lg mx-auto mb-10 leading-relaxed text-center">
+          <p className="text-riot-light-gray text-base md:text-lg max-w-lg mx-auto mb-14 md:mb-16 leading-relaxed text-center">
             Ready to feel alive? Join the fastest-growing fitness community in the UAE.
             Be part of something bigger than yourself.
           </p>
 
           <form 
-            className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md mx-auto"
+            className="flex flex-col gap-6 w-full max-w-md mx-auto text-left"
             onSubmit={handleSubmit}
           >
+            <div className="flex flex-col sm:flex-row gap-6">
+              <input 
+                type="text" 
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Full Name" 
+                className="px-6 min-h-[56px] bg-riot-black/50 border border-riot-white/10 rounded-xl text-riot-white placeholder:text-riot-light-gray focus:outline-none focus:border-riot-red transition-colors flex-1 text-sm glass"
+                required
+                disabled={status !== 'idle'}
+              />
+              <select
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+                className="px-6 min-h-[56px] bg-riot-black/50 border border-riot-white/10 rounded-xl text-riot-light-gray focus:outline-none focus:border-riot-red transition-colors text-sm glass appearance-none min-w-[120px] cursor-pointer"
+                required
+                disabled={status !== 'idle'}
+              >
+                <option value="" disabled>Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-6">
+              <div className="flex bg-riot-black/50 border border-riot-white/10 rounded-xl transition-colors focus-within:border-riot-red glass flex-1 min-h-[56px]">
+                <input 
+                  type="text" 
+                  name="countryCode"
+                  value={formData.countryCode}
+                  onChange={handleChange}
+                  placeholder="+971"
+                  className="w-20 px-4 bg-transparent text-riot-white focus:outline-none text-sm text-center border-r border-riot-white/10"
+                  required
+                  disabled={status !== 'idle'}
+                />
+                <input 
+                  type="tel" 
+                  name="contact"
+                  value={formData.contact}
+                  onChange={handleChange}
+                  placeholder="Contact Number" 
+                  className="px-4 w-full bg-transparent text-riot-white placeholder:text-riot-light-gray focus:outline-none text-sm rounded-r-xl"
+                  required
+                  disabled={status !== 'idle'}
+                />
+              </div>
+              <input 
+                type="text" 
+                name="nationality"
+                value={formData.nationality}
+                onChange={handleChange}
+                placeholder="Nationality" 
+                className="px-6 min-h-[56px] bg-riot-black/50 border border-riot-white/10 rounded-xl text-riot-white placeholder:text-riot-light-gray focus:outline-none focus:border-riot-red transition-colors flex-1 text-sm glass"
+                required
+                disabled={status !== 'idle'}
+              />
+            </div>
+
             <input 
               type="email" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email" 
-              className="px-6 py-4 bg-riot-black/50 border border-riot-white/10 rounded-full text-riot-white placeholder:text-riot-light-gray focus:outline-none focus:border-riot-red transition-colors flex-1 text-sm glass"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email Address" 
+              className="px-6 min-h-[56px] bg-riot-black/50 border border-riot-white/10 rounded-xl text-riot-white placeholder:text-riot-light-gray focus:outline-none focus:border-riot-red transition-colors w-full text-sm glass"
               required
               disabled={status !== 'idle'}
             />
+
             <button 
               type="submit" 
               disabled={status !== 'idle'}
-              className={`px-8 py-4 font-semibold rounded-full transition-all duration-300 text-sm tracking-wider uppercase shrink-0 min-w-[140px]
+              className={`px-8 min-h-[56px] mt-2 font-semibold rounded-xl transition-all duration-300 text-sm tracking-wider uppercase shrink-0 w-full
                 ${status === 'success' ? 'bg-green-500 text-white shadow-[0_0_20px_rgba(34,197,94,0.4)]' : 
                   status === 'submitting' ? 'bg-riot-red/50 text-white/50 cursor-not-allowed' : 
-                  'bg-riot-red text-white hover:bg-riot-orange hover:scale-105 glow-red'}`}
+                  'bg-riot-red text-white hover:bg-riot-orange hover:scale-[1.02] glow-red'}`}
             >
-              {status === 'success' ? 'Joined!' : status === 'submitting' ? 'Wait...' : 'Join Us'}
+              {status === 'success' ? 'Request Sent!' : status === 'submitting' ? 'Please Wait...' : 'Join Us'}
             </button>
           </form>
           
@@ -84,9 +176,9 @@ export default function CTA() {
             <motion.p 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-green-400 text-sm mt-4 tracking-wider"
+              className="text-green-400 text-sm mt-6 tracking-wider"
             >
-              You're on the list! We'll be in touch.
+              Your request was submitted successfully! We'll be in touch.
             </motion.p>
           )}
         </motion.div>

@@ -54,7 +54,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="font-inter text-base md:text-lg text-riot-light-gray max-w-xl mx-auto mb-16 tracking-wide text-center"
+          className="font-inter text-base md:text-lg text-riot-light-gray max-w-xl mx-auto mb-20 tracking-wide text-center"
         >
           A movement built through motion, connection, and culture
         </motion.p>
@@ -66,16 +66,11 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-6 justify-center"
         >
           <a
-            href="#cta"
-            className="px-8 py-4 bg-riot-red text-white font-semibold rounded-full hover:bg-riot-orange transition-all duration-300 hover:scale-105 glow-red text-sm tracking-wider uppercase"
-          >
-            Join The Run
-          </a>
-          <a
             href="#about"
-            className="px-8 py-4 border border-riot-white/20 text-riot-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 hover:scale-105 text-sm tracking-wider uppercase"
+            className="group inline-flex items-center gap-3 px-10 py-4 border border-riot-white/20 text-riot-white font-semibold rounded-full hover:bg-white/10 hover:border-riot-white/50 transition-all duration-300 hover:scale-105 text-sm tracking-widest uppercase"
           >
             Explore Community
+            <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
           </a>
         </motion.div>
       </div>

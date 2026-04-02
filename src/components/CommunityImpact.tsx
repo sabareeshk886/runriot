@@ -36,11 +36,7 @@ const stats = [
   { value: 100, suffix: '%', label: 'Community Driven' },
 ];
 
-const photos = [
-  '/pictures/ANF03347.webp',
-  '/pictures/ANF03357.webp',
-  '/pictures/ANF03413.webp',
-];
+
 
 export default function CommunityImpact() {
   const ref = useRef(null);
@@ -56,7 +52,7 @@ export default function CommunityImpact() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-0"
+          className="text-center mb-12 md:mb-20"
         >
           <span className="text-riot-red font-inter text-sm font-semibold tracking-[0.3em] uppercase mb-4 block">
             Our Impact
@@ -66,10 +62,8 @@ export default function CommunityImpact() {
           </h2>
         </motion.div>
 
-        <div className="w-full h-20 md:h-28"></div>
-
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -78,35 +72,12 @@ export default function CommunityImpact() {
               transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
               className="glass rounded-2xl py-8 px-4 flex flex-col items-center justify-center min-h-[160px] text-center hover:border-riot-red/30 transition-all duration-500 group"
             >
-              <div className="font-archivo text-5xl md:text-6xl tracking-tight text-gradient mb-3">
+              <div className="font-syne text-4xl md:text-5xl font-bold tracking-tight text-gradient mb-3">
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
               </div>
               <p className="text-riot-light-gray text-xs md:text-sm font-inter tracking-wider uppercase">
                 {stat.label}
               </p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Photo grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {photos.map((photo, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
-              className="relative rounded-xl overflow-hidden aspect-square group cursor-hover"
-            >
-              <img
-                src={photo}
-                alt={`Community ${i + 1}`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-riot-black/0 group-hover:bg-riot-black/40 transition-all duration-500" />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <span className="font-syne font-extrabold tracking-wider">RUN RIOT</span>
-              </div>
             </motion.div>
           ))}
         </div>
