@@ -2,13 +2,11 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const images = [
-  { src: '/pictures/ANF03347.webp', span: 'col-span-1 row-span-1' },
-  { src: '/pictures/ANF03425.webp', span: 'col-span-1 row-span-2' },
-  { src: '/pictures/ANF03357.webp', span: 'col-span-1 row-span-1' },
-  { src: '/pictures/ANF03475.webp', span: 'col-span-1 row-span-1' },
-  { src: '/pictures/ANF03490.webp', span: 'col-span-1 row-span-1' },
-  { src: '/pictures/ANF03504.webp', span: 'col-span-1 row-span-2' },
-  { src: '/pictures/ANF03515.webp', span: 'col-span-1 row-span-1' },
+  { src: '/pictures-new/img1.jpg' },
+  { src: '/pictures-new/img2.jpg' },
+  { src: '/pictures-new/img3.jpg' },
+  { src: '/pictures-new/img4.jpg' },
+  { src: '/pictures-new/img5.jpg' },
 ];
 
 export default function Gallery() {
@@ -35,20 +33,20 @@ export default function Gallery() {
           </p>
         </motion.div>
 
-        {/* Masonry grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[200px] gap-3">
+        {/* Masonry-style layout to prevent cropping */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
           {images.map((img, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.1 * i }}
-              className={`${img.span} relative rounded-xl overflow-hidden group cursor-hover`}
+              className="break-inside-avoid relative rounded-2xl overflow-hidden group cursor-hover mb-4"
             >
               <img
                 src={img.src}
                 alt={`Gallery ${i + 1}`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-auto transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-riot-black/0 group-hover:bg-riot-black/50 transition-all duration-500" />
 
