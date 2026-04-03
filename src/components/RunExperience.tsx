@@ -9,6 +9,7 @@ const experiences = [
     subtitle: 'Every weekend, rain or shine',
     desc: 'Hit the streets with the crew. No pace requirements, just pure energy and good vibes.',
     icon: Footprints,
+    rotate: 'rotate-90 scale-150',
     image: '/pictures/ANF03303.webp',
   },
   {
@@ -23,6 +24,7 @@ const experiences = [
     subtitle: 'Fuel the conversation',
     desc: 'Every run ends at the best local spots. Coffee is the glue that holds this community together.',
     icon: Coffee,
+    rotate: 'rotate-90 scale-150',
     image: '/pictures/ANF03334.webp',
   },
   {
@@ -73,7 +75,7 @@ export default function RunExperience() {
                   <img
                     src={exp.image}
                     alt={exp.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 ${exp.rotate || ''}`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-riot-black via-transparent to-transparent" />
                   <div className="absolute top-4 left-4 text-white glass p-2 rounded-xl">
