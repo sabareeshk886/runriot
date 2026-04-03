@@ -95,7 +95,7 @@ export default function CTA() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Full Name" 
-                className="px-6 h-[56px] bg-riot-black/50 border border-riot-white/10 rounded-xl text-riot-white placeholder:text-riot-light-gray focus:outline-none focus:border-riot-red transition-colors flex-1 text-sm glass"
+                className="px-6 py-[16px] bg-riot-black/50 border border-riot-white/10 rounded-xl text-riot-white placeholder:text-riot-light-gray focus:outline-none focus:border-riot-red transition-colors flex-1 text-sm glass"
                 required
                 disabled={status !== 'idle'}
               />
@@ -103,7 +103,7 @@ export default function CTA() {
                 name="gender"
                 value={formData.gender}
                 onChange={handleChange}
-                className="px-6 h-[56px] bg-riot-black/50 border border-riot-white/10 rounded-xl text-riot-light-gray focus:outline-none focus:border-riot-red transition-colors text-sm glass appearance-none min-w-[120px] cursor-pointer"
+                className="px-6 py-[16px] bg-riot-black/50 border border-riot-white/10 rounded-xl text-riot-light-gray focus:outline-none focus:border-riot-red transition-colors text-sm glass appearance-none min-w-[120px] cursor-pointer"
                 required
                 disabled={status !== 'idle'}
               >
@@ -115,14 +115,14 @@ export default function CTA() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6">
-              <div className="flex bg-riot-black/50 border border-riot-white/10 rounded-xl transition-colors focus-within:border-riot-red glass flex-1 h-[56px] items-center overflow-hidden">
+              <div className="flex bg-riot-black/50 border border-riot-white/10 rounded-xl transition-colors focus-within:border-riot-red glass flex-1 items-stretch overflow-hidden">
                 <input 
                   type="text" 
                   name="countryCode"
                   value={formData.countryCode}
                   onChange={handleChange}
                   placeholder="+971"
-                  className="w-20 h-full px-4 bg-transparent text-riot-white focus:outline-none text-sm text-center border-r border-riot-white/10"
+                  className="w-20 py-[16px] px-4 bg-transparent text-riot-white focus:outline-none text-sm text-center border-r border-riot-white/10"
                   required
                   disabled={status !== 'idle'}
                 />
@@ -132,7 +132,7 @@ export default function CTA() {
                   value={formData.contact}
                   onChange={handleChange}
                   placeholder="Contact Number" 
-                  className="px-4 h-full w-full bg-transparent text-riot-white placeholder:text-riot-light-gray focus:outline-none text-sm rounded-r-xl"
+                  className="px-4 py-[16px] w-full bg-transparent text-riot-white placeholder:text-riot-light-gray focus:outline-none text-sm rounded-r-xl"
                   required
                   disabled={status !== 'idle'}
                 />
@@ -143,7 +143,7 @@ export default function CTA() {
                 value={formData.nationality}
                 onChange={handleChange}
                 placeholder="Nationality" 
-                className="px-6 h-[56px] bg-riot-black/50 border border-riot-white/10 rounded-xl text-riot-white placeholder:text-riot-light-gray focus:outline-none focus:border-riot-red transition-colors flex-1 text-sm glass"
+                className="px-6 py-[16px] bg-riot-black/50 border border-riot-white/10 rounded-xl text-riot-white placeholder:text-riot-light-gray focus:outline-none focus:border-riot-red transition-colors flex-1 text-sm glass"
                 required
                 disabled={status !== 'idle'}
               />
@@ -155,7 +155,7 @@ export default function CTA() {
               value={formData.email}
               onChange={handleChange}
               placeholder="Email Address" 
-              className="px-6 h-[56px] bg-riot-black/50 border border-riot-white/10 rounded-xl text-riot-white placeholder:text-riot-light-gray focus:outline-none focus:border-riot-red transition-colors w-full text-sm glass"
+              className="px-6 py-[16px] bg-riot-black/50 border border-riot-white/10 rounded-xl text-riot-white placeholder:text-riot-light-gray focus:outline-none focus:border-riot-red transition-colors w-full text-sm glass"
               required
               disabled={status !== 'idle'}
             />
