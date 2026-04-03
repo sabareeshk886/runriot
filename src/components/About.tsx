@@ -19,7 +19,7 @@ export default function About() {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-riot-red/5 rounded-full blur-[200px]" />
 
       <div className="max-w-[1400px] mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text side */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
@@ -55,7 +55,7 @@ export default function About() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.5 + i * 0.15 }}
-                  className="glass rounded-xl px-6 pt-16 pb-14 text-center hover:border-riot-red/30 transition-all duration-300 flex flex-col items-center justify-center gap-3"
+                  className="glass rounded-xl px-4 py-8 sm:px-6 sm:pt-16 sm:pb-14 text-center hover:border-riot-red/30 transition-all duration-300 flex flex-col items-center justify-center gap-2 sm:gap-3"
                 >
                   <div className="text-riot-red flex justify-center">
                     <v.icon size={36} strokeWidth={1.5} />
@@ -88,10 +88,10 @@ export default function About() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.8 }}
-              className="absolute bottom-6 left-6 z-20 glass-strong rounded-xl p-5"
+              className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-20 glass-strong rounded-xl p-4 md:p-5"
             >
-              <p className="font-syne text-3xl font-extrabold text-gradient">UAE BASED</p>
-              <p className="text-riot-light-gray text-xs tracking-wider">EST. 2024</p>
+              <p className="font-syne text-2xl md:text-3xl font-extrabold text-gradient">UAE BASED</p>
+              <p className="text-riot-light-gray text-[10px] sm:text-xs tracking-wider">EST. 2026</p>
             </motion.div>
           </motion.div>
         </div>

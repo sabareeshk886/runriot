@@ -62,7 +62,7 @@ export default function BrandOffer() {
           </p>
         </motion.div>
 
-        <div className="w-full h-16 md:h-24"></div>
+        <div className="w-full h-12 md:h-24"></div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {offers.map((offer, i) => (
@@ -71,7 +71,7 @@ export default function BrandOffer() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-              className="glass rounded-2xl px-6 py-10 md:px-8 md:py-12 hover:border-riot-red/30 transition-all duration-500 group cursor-hover relative overflow-hidden"
+              className="glass rounded-2xl px-6 py-8 md:px-8 md:py-12 hover:border-riot-red/30 transition-all duration-500 group cursor-hover relative overflow-hidden"
             >
               {/* Hover glow */}
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-riot-red/0 group-hover:bg-riot-red/10 rounded-full blur-[60px] transition-all duration-700" />

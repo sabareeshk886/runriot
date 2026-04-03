@@ -70,7 +70,7 @@ export default function CommunityImpact() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
-              className="glass rounded-2xl py-8 px-4 flex flex-col items-center justify-center min-h-[160px] text-center hover:border-riot-red/30 transition-all duration-500 group"
+              className="glass rounded-2xl py-6 px-4 md:py-8 flex flex-col items-center justify-center min-h-[140px] md:min-h-[160px] text-center hover:border-riot-red/30 transition-all duration-500 group"
             >
               <div className="font-syne text-4xl md:text-5xl font-bold tracking-tight text-gradient mb-3">
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />

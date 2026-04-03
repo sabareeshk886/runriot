@@ -46,22 +46,22 @@ export default function Footer() {
         </div>
       </section>
 
-      {/* Bottom bar — full viewport width, items in corners */}
+      {/* Bottom bar — responsive flex flow */}
       <div className="border-t border-white/5 w-full">
-        <div className="relative flex items-center justify-between w-full px-8 py-6">
+        <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0 w-full px-8 py-8 md:py-6">
 
           {/* Left: Copyright */}
-          <p className="text-riot-light-gray text-xs tracking-wider shrink-0">
-            © 2024 RUN RIOT. All rights reserved.
+          <p className="text-riot-light-gray text-xs tracking-wider shrink-0 order-2 md:order-1">
+            © 2026 RUN RIOT. All rights reserved.
           </p>
 
-          {/* Center: Instagram — absolutely pinned to 50% of viewport */}
+          {/* Center: Instagram */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="absolute left-1/2 -translate-x-1/2"
+            className="md:absolute md:left-1/2 md:-translate-x-1/2 order-1 md:order-2"
           >
             {socialLinks.map((link) => (
               <a
@@ -78,7 +78,7 @@ export default function Footer() {
           </motion.div>
 
           {/* Right: Badge */}
-          <p className="text-riot-light-gray text-xs tracking-wider shrink-0">
+          <p className="text-riot-light-gray text-xs tracking-wider shrink-0 order-3">
             Made with 🔥 in the UAE
           </p>
 

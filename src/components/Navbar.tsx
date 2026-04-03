@@ -94,7 +94,7 @@ export default function Navbar() {
           animate={isMobileOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
           className="md:hidden overflow-hidden glass-strong"
         >
-          <div className="flex flex-col items-center gap-6 py-8">
+          <div className="flex flex-col items-center gap-8 py-10">
             {navItems.map((item) => (
               <a
                 key={item.label}

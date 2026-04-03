@@ -40,7 +40,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h1 className="font-syne text-[clamp(4.5rem,15vw,13rem)] font-extrabold leading-[0.8] tracking-[-0.02em] mb-4 text-white">
+          <h1 className="font-syne text-[clamp(4.5rem,15vw,13rem)] font-extrabold leading-[0.9] tracking-[-0.02em] mb-4 text-white">
             RUN RIOT
           </h1>
           <motion.div
@@ -63,7 +63,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col sm:flex-row gap-6 justify-center"
+          className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center w-full px-4 sm:px-0"
         >
           <a
             href="#about"

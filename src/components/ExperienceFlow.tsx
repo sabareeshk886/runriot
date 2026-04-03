@@ -43,7 +43,7 @@ export default function ExperienceFlow() {
             style={{ background: 'linear-gradient(90deg, #FF2D2D, #FF5E00, #FF9500)' }}
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4">
             {steps.map((step, i) => (
               <motion.div
                 key={step.label}
@@ -57,15 +57,15 @@ export default function ExperienceFlow() {
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : {}}
                   transition={{ duration: 0.4, delay: 0.6 + i * 0.2, type: 'spring' }}
-                  className="w-20 h-20 rounded-full glass-strong flex items-center justify-center mb-6 relative z-10"
+                  className="w-16 h-16 md:w-20 md:h-20 rounded-full glass-strong flex items-center justify-center mb-4 md:mb-6 relative z-10"
                   style={{ boxShadow: `0 0 30px ${step.color}33` }}
                 >
                   <span className="text-white">
-                    <step.icon size={32} strokeWidth={1.5} />
+                    <step.icon className="w-6 h-6 md:w-8 md:h-8" strokeWidth={1.5} />
                   </span>
                 </motion.div>
 
-                <h4 className="font-syne text-2xl font-extrabold tracking-[0.1em] mb-1 uppercase" style={{ color: step.color }}>
+                <h4 className="font-syne text-xl md:text-2xl font-extrabold tracking-[0.1em] mb-1 uppercase" style={{ color: step.color }}>
                   {step.label}
                 </h4>
                 <p className="text-riot-light-gray text-xs tracking-wider">{step.desc}</p>
